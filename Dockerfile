@@ -1,13 +1,20 @@
+# Используем официальный образ для Node.js
 FROM node:18
 
-WORKDIR /usr/src/app
+# Устанавливаем рабочую директорию
+WORKDIR /app
 
-COPY package*.json ./
+# Копируем package.json и package-lock.json
+COPY lotus-backend/package.json lotus-backend/package-lock.json ./
 
+# Устанавливаем зависимости
 RUN npm install
 
-COPY . .
+# Копируем исходный код проекта
+COPY lotus-backend/ ./
 
-EXPOSE 3000
+# Открываем порт, на котором будет работать бэкенд
+EXPOSE 9998
 
-CMD ["npm", "start"]
+# Запускаем приложение
+CMD ["npm", "run", "start"]
