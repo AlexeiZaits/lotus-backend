@@ -8,7 +8,7 @@ const cors = require('cors');
 
 
 const app = express();
-const PORT = 3000;
+const PORT = 9999;
 app.use(express.json()); // Обрабатывает JSON-запросы
 const auctionConnections = new Map(); // Хранение комнат для разных аукционов
 let auctions = []; // Хранение всех аукционов
